@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "ProductVariant")
+@Table(name = "product_variants")
 public class ProductVariant {
     @Id
     private long id;
