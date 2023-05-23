@@ -2,12 +2,11 @@ package com.uni.baker.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.validation.annotation.Validated;
 
 @Data
 @Entity
-@Table(name = "productImage")
-public class Product_Image {
+@Table(name = "product_images")
+public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
