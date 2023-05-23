@@ -12,7 +12,7 @@ import lombok.Data;
 @Table(name = "wards")
 public class Ward {
     @Id
-    private long id;
+    private Long id;
 
     @Column(name = "name", length = 128)
     private String name;

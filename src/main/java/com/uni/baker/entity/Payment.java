@@ -11,7 +11,7 @@ import lombok.Data;
 @Table(name = "payments")
 public class Payment {
     @Id
-    private long id;
+    private Long id;
 
     @Column(name = "provider", length = 128)
     private String provider;
