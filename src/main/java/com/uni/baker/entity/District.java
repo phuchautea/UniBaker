@@ -11,7 +11,7 @@ import lombok.Data;
 @Table(name = "districts")
 public class District {
     @Id
-    private long id;
+    private Long id;
 
     @Column(name = "name", length = 128)
     private String name;
