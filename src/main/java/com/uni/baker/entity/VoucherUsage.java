@@ -18,6 +18,9 @@ public class VoucherUsage {
     @Column(name = "value_used",nullable = false)
     private Integer valueUsed;
     ///voucherId
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "voucher_id", nullable = false)
+    private Voucher voucher;
     //orderId
 
 

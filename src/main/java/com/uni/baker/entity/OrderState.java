@@ -9,8 +9,7 @@
 //@Entity
 //@Table(name = "order_state")
 //public class OrderState {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//
 //    @Column(name = "state")
 //    private String state;
 //    @Column(name = "created_at", nullable = false)

@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name = "voucher")
+@Table(name = "vouchers")
 public class Voucher {
     @Id
     private Long id;
@@ -37,5 +38,9 @@ public class Voucher {
 
     @Column(name = "used_count")
     private Integer usedCount;
+
+    @OneToMany(mappedBy = "voucher", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<VoucherUsage> voucherUsages;
 
 }
