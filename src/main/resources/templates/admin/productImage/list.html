@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>bot mi</title>
+    <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<div class="container">
+    <h1 th:text=${title}></h1>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Show</th>
+            <th>Path</th>
+            <th>FileName</th>
+            <th>Product</th>
+            <th>ACtion</th>
+
+        </tr>
+        <tr th:each="proImg : ${proImgs}">
+            <td th:text="${proImg.id}"></td>
+            <td><img th:src="${proImg.path}"></td>
+            <td th:text="${proImg.path}"></td>
+            <td th:text="${proImg.fileName}"></td>
+            <td th:text="${proImg.product.name}"></td>
+            <td>
+                <a th:href="@{/books/edit/{id}(id=${proImg.id})}">Edit</a>
+                <a th:href="@{/product-Image/delete/{id}(id=${proImg.id})}"
+                   onclick="return confirm('Ban chac chan xoa anh?')">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>
