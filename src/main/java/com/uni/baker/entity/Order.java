@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -35,5 +37,29 @@ public class Order {
     @Column(name = "final_price")
     private Double finalPrice;
 
+    @OneToMany(mappedBy = "order")
+    private List<OrderVariant> orderVariants = new ArrayList<>();
+
+
+    @ManyToOne
+    @JoinColumn(name = "payment_id", referencedColumnName = "id")
+    private Payment payment;
+
+    @ManyToOne
+    @JoinColumn(name = "shipping_address_id", referencedColumnName = "id")
+    private ShippingAddress shippingAddress;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
+    @OneToMany(mappedBy = "order")
+    private List<Review> reviews = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order")
+    private List<VoucherUsage> voucherUsages = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderState> orderStates = new ArrayList<>();
 }
 

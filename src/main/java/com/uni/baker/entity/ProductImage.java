@@ -10,12 +10,15 @@ public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "path", nullable = false)
     private String path;
+
     @Column(name = "filename", nullable = false)
     private String fileName;
-//    @ManyToOne
-//    @JoinColumn(name = "product_id")
-//    @Validated
-//    private Product product_id;
+
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
 }

@@ -1,10 +1,10 @@
 package com.uni.baker.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -12,8 +12,17 @@ import lombok.Data;
 @Table(name = "wards")
 public class Ward {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name", length = 128)
     private String name;
+
+
+    @ManyToOne
+    @JoinColumn(name = "district_id", referencedColumnName = "id")
+    private District district;
+
+    @OneToMany(mappedBy = "ward", cascade = CascadeType.ALL)
+    private List<ShippingAddress> shippingAddresses = new ArrayList<>();
 }
