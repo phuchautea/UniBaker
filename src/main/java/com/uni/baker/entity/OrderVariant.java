@@ -6,10 +6,10 @@
 //
 //@Data
 //@Entity
-//@Table(name = "order_variant")
+//@Table(name = "order_variants")
 //public class OrderVariant {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Order orderId;
+//
 //    @Column(name = "reviewed")
 //    private boolean reviewed;
 //    @Column(name = "quantity")
