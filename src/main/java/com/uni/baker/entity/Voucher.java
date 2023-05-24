@@ -4,12 +4,15 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name = "voucher")
+@Table(name = "vouchers")
 public class Voucher {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "discount_code", length = 128)
@@ -37,5 +40,9 @@ public class Voucher {
 
     @Column(name = "used_count")
     private Integer usedCount;
+
+
+    @OneToMany(mappedBy = "voucher")
+    private List<VoucherUsage> voucherUsages = new ArrayList<>();
 
 }
