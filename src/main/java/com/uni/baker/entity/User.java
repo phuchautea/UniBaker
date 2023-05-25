@@ -42,4 +42,8 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
+
+    public User() {
+        this.birthday = new Date(); // Khởi tạo birthday với thời gian hiện tại
+    }
 }
